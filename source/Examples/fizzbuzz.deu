@@ -1,0 +1,16 @@
+// FizzBuzz – der Klassiker aus jedem Vorstellungsgespräch
+// Zeigt "sonst wenn"-Ketten und den Modulo-Operator %
+
+zahl i = 1;
+solange i <= 30 {
+    wenn i % 15 == 0 {
+        schreibe "FizzBuzz";
+    } sonst wenn i % 3 == 0 {
+        schreibe "Fizz";
+    } sonst wenn i % 5 == 0 {
+        schreibe "Buzz";
+    } sonst {
+        schreibe i;
+    }
+    i = i + 1;
+}

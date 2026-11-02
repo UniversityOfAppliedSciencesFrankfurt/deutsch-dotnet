@@ -1,0 +1,6 @@
+// Das kleinste Deutsch#-Programm
+
+schreibe "Hallo, Welt!";
+schreibe "Grüße aus Frankfurt – kompiliert direkt nach .NET IL.";
+schreibe "";
+schreibe "Hello best students in the world.";

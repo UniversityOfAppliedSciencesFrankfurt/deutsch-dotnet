@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>DeutschDotNet</AssemblyName>
+    <RootNamespace>DeutschDotNet</RootNamespace>
+    <Version>1.0.0</Version>
+    <Authors>Damir Dobric</Authors>
+    <Description>Compiler for Deutsch#, a small programming language with German keywords that compiles to .NET IL.</Description>
+
+    <!-- Allows installing the compiler as a global command: dotnet tool install -g DeutschDotNet -->
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>dotnet-de</ToolCommandName>
+    <PackageId>dotnet-de</PackageId>
+  </PropertyGroup>
+
+</Project>

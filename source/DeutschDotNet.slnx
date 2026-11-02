@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="README.md" />
+    <File Path=".gitignore" />
+  </Folder>
+  <Project Path="DeutschDotNet/DeutschDotNet.csproj" />
+  <Project Path="Examples/Examples.csproj" />
+</Solution>

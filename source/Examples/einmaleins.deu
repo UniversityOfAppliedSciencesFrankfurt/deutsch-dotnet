@@ -1,0 +1,12 @@
+// Das kleine Einmaleins (1 bis 5) – verschachtelte Schleifen
+
+zahl reihe = 1;
+solange reihe <= 5 {
+    schreibe "Die " + reihe + "er-Reihe:";
+    zahl faktor = 1;
+    solange faktor <= 10 {
+        schreibe "  " + faktor + " x " + reihe + " = " + faktor * reihe;
+        faktor = faktor + 1;
+    }
+    reihe = reihe + 1;
+}

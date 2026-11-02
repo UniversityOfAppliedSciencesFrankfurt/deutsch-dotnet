@@ -1,0 +1,35 @@
+// Beispielprogramm in Deutsch#: Fakultät, Verzweigung und Primzahlen
+
+zahl n = 10;
+zahl fakultät = 1;
+zahl i = 1;
+
+solange i <= n {
+    fakultät = fakultät * i;
+    i = i + 1;
+}
+schreibe "10! = " + fakultät;
+
+wenn fakultät > 1000000 {
+    schreibe "Das ist groß!";
+} sonst {
+    schreibe "Das ist klein.";
+}
+
+schreibe "Primzahlen bis 30:";
+zahl größe = 30;
+zahl kandidat = 2;
+solange kandidat <= größe {
+    zahl teiler = 2;
+    zahl istPrim = wahr;
+    solange teiler * teiler <= kandidat und istPrim {
+        wenn kandidat % teiler == 0 {
+            istPrim = falsch;
+        }
+        teiler = teiler + 1;
+    }
+    wenn istPrim {
+        schreibe kandidat;
+    }
+    kandidat = kandidat + 1;
+}

@@ -1,0 +1,25 @@
+// Wahrheitswerte und logische Operatoren: und, oder, nicht
+
+zahl regen = wahr;
+zahl schirm = falsch;
+
+wenn regen und nicht schirm {
+    schreibe "Du wirst nass!";
+}
+
+wenn regen oder schirm {
+    schreibe "Mindestens eins ist wahr.";
+}
+
+// Schaltjahr-Regel: durch 4 teilbar, aber nicht durch 100 – außer durch 400
+zahl jahr = 1896;
+solange jahr <= 2028 {
+    wenn jahr % 4 == 0 und (jahr % 100 != 0 oder jahr % 400 == 0) {
+        wenn jahr == 1900 oder jahr == 2000 oder jahr >= 2020 {
+            schreibe jahr + " ist ein Schaltjahr";
+        }
+    } sonst wenn jahr == 1900 {
+        schreibe jahr + " ist KEIN Schaltjahr (durch 100 teilbar)";
+    }
+    jahr = jahr + 4;
+}

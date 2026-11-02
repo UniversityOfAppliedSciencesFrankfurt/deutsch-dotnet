@@ -1,0 +1,18 @@
+// Zinseszins: 10.000 € zu 5 % über 10 Jahre.
+// Deutsch# kennt nur ganze Zahlen, deshalb rechnen wir in Cent.
+
+zahl kapital = 1000000;     // 10.000,00 € in Cent
+zahl zinssatz = 5;          // Prozent
+zahl jahr = 1;
+
+solange jahr <= 10 {
+    kapital = kapital + kapital * zinssatz / 100;
+    zahl euro = kapital / 100;
+    zahl cent = kapital % 100;
+    wenn cent < 10 {
+        schreibe "Jahr " + jahr + ": " + euro + ",0" + cent + " €";
+    } sonst {
+        schreibe "Jahr " + jahr + ": " + euro + "," + cent + " €";
+    }
+    jahr = jahr + 1;
+}

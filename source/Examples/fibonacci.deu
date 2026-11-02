@@ -1,0 +1,14 @@
+// Die ersten 20 Fibonacci-Zahlen
+
+zahl anzahl = 20;
+zahl a = 0;
+zahl b = 1;
+zahl i = 0;
+
+solange i < anzahl {
+    schreibe "F(" + i + ") = " + a;
+    zahl nächste = a + b;
+    a = b;
+    b = nächste;
+    i = i + 1;
+}

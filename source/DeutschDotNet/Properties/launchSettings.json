@@ -1,0 +1,19 @@
+{
+  "profiles": {
+    "Compile and run Examples project": {
+      "commandName": "Project",
+      "commandLineArgs": "../Examples/Examples.csproj --run",
+      "workingDirectory": "$(ProjectDir)"
+    },
+    "Compile single file (beispiel.deu)": {
+      "commandName": "Project",
+      "commandLineArgs": "../Examples/beispiel.deu --output ../Examples/bin/single --run",
+      "workingDirectory": "$(ProjectDir)"
+    },
+    "Show help": {
+      "commandName": "Project",
+      "commandLineArgs": "--help",
+      "workingDirectory": "$(ProjectDir)"
+    }
+  }
+}

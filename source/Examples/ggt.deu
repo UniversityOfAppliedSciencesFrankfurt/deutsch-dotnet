@@ -1,0 +1,15 @@
+// Größter gemeinsamer Teiler (ggT) nach Euklid und kleinstes gemeinsames Vielfaches (kgV)
+
+zahl x = 1071;
+zahl y = 462;
+
+zahl a = x;
+zahl b = y;
+solange b != 0 {
+    zahl rest = a % b;
+    a = b;
+    b = rest;
+}
+
+schreibe "ggT(" + x + ", " + y + ") = " + a;
+schreibe "kgV(" + x + ", " + y + ") = " + x / a * y;

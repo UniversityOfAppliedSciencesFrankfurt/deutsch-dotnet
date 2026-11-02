@@ -1,0 +1,49 @@
+<!--
+  Examples project: contains Deutsch# (.deu) programs only – no C#.
+  Building it (dotnet build / Visual Studio) runs DeutschDotNet on every .deu file
+  and writes one executable assembly per file to bin/<Configuration>/<TargetFramework>/.
+
+  Microsoft.Build.NoTargets is the standard SDK for projects that do not compile C#
+  (it is restored from NuGet automatically on first build).
+-->
+<Project Sdk="Microsoft.Build.NoTargets/3.7.0">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <DeutschCompilerProject>$(MSBuildThisFileDirectory)..\DeutschDotNet\DeutschDotNet.csproj</DeutschCompilerProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Source files to compile. Same item name is read by the compiler when you pass it this project file. -->
+    <DeuCompile Include="**/*.deu" Exclude="bin/**;obj/**" />
+
+    <!-- Make sure the compiler is built first. It is a tool, not a library reference. -->
+    <ProjectReference Include="$(DeutschCompilerProject)"
+                      ReferenceOutputAssembly="false"
+                      SkipGetTargetFrameworkProperties="true"
+                      Private="false" />
+  </ItemGroup>
+
+  <Target Name="ResolveDeutschCompiler">
+    <MSBuild Projects="$(DeutschCompilerProject)" Targets="GetTargetPath" Properties="Configuration=$(Configuration)">
+      <Output TaskParameter="TargetOutputs" PropertyName="DeutschCompilerPath" />
+    </MSBuild>
+  </Target>
+
+  <!-- Incremental: only .deu files newer than their .dll are recompiled. -->
+  <Target Name="CompileDeutschSources"
+          AfterTargets="Build"
+          DependsOnTargets="ResolveDeutschCompiler"
+          Inputs="@(DeuCompile)"
+          Outputs="@(DeuCompile->'$(OutDir)%(Filename).dll')">
+
+    <Exec Command="dotnet &quot;$(DeutschCompilerPath)&quot; @(DeuCompile->'&quot;%(FullPath)&quot;', ' ') --output &quot;$(OutDir).&quot; --quiet"
+          IgnoreExitCode="true" />
+  </Target>
+
+  <!-- dotnet clean / Visual Studio "Clean" removes the generated assemblies. -->
+  <Target Name="CleanDeutschSources" AfterTargets="Clean">
+    <Delete Files="@(DeuCompile->'$(OutDir)%(Filename).dll');@(DeuCompile->'$(OutDir)%(Filename).runtimeconfig.json')" />
+  </Target>
+
+</Project>
